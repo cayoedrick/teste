@@ -1,8 +1,9 @@
-const CACHE_NAME = 'fluc-cache-v1';
+const CACHE_NAME = 'fluc-cache-v2';
 const urlsToCache = [
-  '/',
-  '/index.html',
-  '/manifest.json'
+  './',
+  './index.html',
+  './manifest.json',
+  './icon.svg'
 ];
 
 self.addEventListener('install', event => {
