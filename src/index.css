@@ -1,0 +1,90 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Outfit", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+
+  --color-app: var(--bg-app);
+  --color-primary: var(--bg-primary);
+  --color-secondary: var(--bg-secondary);
+  --color-tertiary: var(--bg-tertiary);
+  
+  --color-general: var(--text-general);
+  --color-discreto: var(--text-discreto);
+  
+  --color-receita: var(--color-receita);
+  --color-despesa: var(--color-despesa);
+  --color-transferencia: var(--color-transferencia);
+  --color-cartao: var(--color-cartao);
+  
+  --color-card-gradient-start: var(--bg-card-gradient-start);
+  --color-card-gradient-end: var(--bg-card-gradient-end);
+}
+
+@layer base {
+  :root {
+    /* Clean Theme (Light) */
+    --bg-app: #dfe8eb;
+    --bg-primary: #fdfefe;
+    --bg-secondary: #d9e3e6;
+    --bg-tertiary: #d2dcdf;
+    --text-general: #022235;
+    --text-discreto: #375463;
+    
+    --color-receita: #00cc52;
+    --color-despesa: #d03c4d;
+    --color-transferencia: #1c7ae4;
+    --color-cartao: #ed793a;
+    
+    --bg-card-gradient-start: var(--bg-primary);
+    --bg-card-gradient-end: #eff5f7;
+  }
+
+  .dark {
+    /* Dark Theme */
+    --bg-app: #0c1416;
+    --bg-primary: #1b2a2f;
+    --bg-secondary: #507b84;
+    --bg-tertiary: #2e454d;
+    --text-general: #ffffff;
+    --text-discreto: #426273;
+    
+    --bg-card-gradient-start: var(--bg-primary);
+    --bg-card-gradient-end: #243b42;
+  }
+
+  body {
+    background-color: var(--bg-app);
+    color: var(--text-general);
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+}
+
+@layer components {
+  .card-flat {
+    @apply bg-primary rounded-[24px] overflow-hidden transition-colors duration-300;
+  }
+  .button-flat {
+    @apply rounded-[12px] transition-colors duration-300 active:scale-[0.98] flex items-center justify-center;
+  }
+  .tag-flat {
+    @apply rounded-[8px] px-2 py-1 text-xs font-medium inline-flex items-center;
+  }
+  .input-flat {
+    @apply bg-app text-general rounded-[12px] px-4 py-3 w-full focus:outline-none focus:ring-2 focus:ring-secondary transition-all;
+  }
+  
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-tertiary rounded-full;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-secondary;
+  }
+}
