@@ -1,5 +1,5 @@
 import React, { Suspense } from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { HashRouter, Routes, Route } from 'react-router-dom';
 import { ThemeProvider } from './contexts/ThemeContext';
 import { DataProvider } from './contexts/DataContext';
 import { AppLayout } from './components/AppLayout';
@@ -16,7 +16,7 @@ export default function App() {
   return (
     <ThemeProvider>
       <DataProvider>
-        <BrowserRouter>
+        <HashRouter>
           <Suspense fallback={<div className="h-screen w-full flex items-center justify-center bg-app text-general">Carregando...</div>}>
             <Routes>
               <Route path="/" element={<AppLayout />}>
@@ -29,7 +29,7 @@ export default function App() {
               </Route>
             </Routes>
           </Suspense>
-        </BrowserRouter>
+        </HashRouter>
       </DataProvider>
     </ThemeProvider>
   );
